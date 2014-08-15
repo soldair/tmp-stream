@@ -39,6 +39,10 @@ function tmp () {
       tr.emit('error', err);
     });
 
+    tr.on('end',function(){
+      stream.end();
+    })
+
     for (var i = 0; i < buf.length; i++) real.write(buf[i]);
     buf = null;
   }
